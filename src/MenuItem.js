@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import assign from 'object-assign';
+import FlatButton from 'material-ui/FlatButton';
 
 import { hideMenu } from './actions';
 import { callIfExists, cssClasses, store } from './helpers';
@@ -50,14 +51,13 @@ export default class MenuItem extends Component {
             [cssClasses.menuItemDisabled]: disabled,
             [cssClasses.menuItemDivider]: divider
         });
-
         return (
             <div
                 {...attributes} className={menuItemClassNames}
                 role='menuitem' tabIndex='-1' aria-disabled={disabled ? 'true' : 'false'}
                 aria-orientation={divider ? 'horizontal' : null}
                 onTouchEnd={this.handleClick} onClick={this.handleClick}>
-                {divider ? null : children}
+                {divider ? null : <FlatButton style={{ textAlign: 'left', padding: '0px 10px' }} fullWidth={true}>{children}</FlatButton>}
             </div>
         );
     }

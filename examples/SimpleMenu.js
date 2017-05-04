@@ -4,6 +4,7 @@ import ContextMenuTrigger from 'src/ContextMenuTrigger';
 import ContextMenu from 'src/ContextMenu';
 import MenuItem from 'src/MenuItem';
 
+
 const MENU_TYPE = 'SIMPLE';
 
 export default class SimpleMenu extends Component {

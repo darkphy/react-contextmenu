@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import FlatButton from 'material-ui/FlatButton';
+import FontIcon from 'material-ui/FontIcon';
 
 import { cssClasses, hasOwnProp } from './helpers';
 
@@ -139,6 +141,7 @@ export default class SubMenu extends Component {
     render() {
         const { children, disabled, title } = this.props;
         const { visible } = this.state;
+        const iconRight = <FontIcon className='material-icons'>keyboard_arrow_right</FontIcon>;
         const menuProps = {
             ref: this.menuRef,
             onMouseEnter: this.handleMouseEnter,
@@ -168,7 +171,16 @@ export default class SubMenu extends Component {
         return (
             <nav {...menuProps} role='menuitem' tabIndex='-1' aria-haspopup='true'>
                 <div {...menuItemProps}>
-                    {title}
+                    {<FlatButton style={{ textAlign: 'left', padding: '0px 10px' }} fullWidth={true}>
+                        <div className='flexbox-container'>
+                            <div className='flexbox-spread'>
+                                {title}
+                            </div>
+                            <div className='flexbox-adjust rightNob'>
+                                {iconRight}
+                            </div>
+                        </div>
+                    </FlatButton>}
                 </div>
                 <nav {...subMenuProps} role='menu' tabIndex='-1'>
                     {children}
